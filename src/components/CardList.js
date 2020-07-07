@@ -3,7 +3,7 @@ import { Card } from './Card'
 
 export const CardList = ({ robots }) => {
   if (true) {
-    throw new Error('noooo')
+    // throw new Error('noooo')
   }
   return (
     <>
