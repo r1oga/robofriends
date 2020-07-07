@@ -3,6 +3,7 @@ import { CardList } from '../components/CardList'
 import { Header } from '../components/Header'
 import { Scroll } from '../components/Scroll'
 import { SearchBox } from '../components/SearchBox'
+import { ErrorBoundary } from '../components/ErrorBoundary'
 
 export class App extends Component {
   // equivalent
@@ -43,7 +44,9 @@ export class App extends Component {
           <SearchBox onSearchChange={this.onSearchChange} />
         </div>
         <Scroll>
-          <CardList robots={this.state.robots} />
+          <ErrorBoundary>
+            <CardList robots={this.state.robots} />
+          </ErrorBoundary>
         </Scroll>
       </>
     )
