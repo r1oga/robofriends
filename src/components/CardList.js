@@ -5,6 +5,7 @@ export const CardList = ({ robots }) => {
   if (true) {
     // throw new Error('noooo')
   }
+  console.log('CardList')
   return (
     <>
       {robots.map((robot, index) => (
