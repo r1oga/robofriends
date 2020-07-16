@@ -2,15 +2,34 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
 jobs:
-  merge:
+  build:
     executor:
       name: node/default
     steps:
       - checkout
       - node/with-cache:
           steps:
-            - run: echo "Merging PR"
+            - run: echo "npm installing"
+            - run: npm install
+            - run: CI=true npm run build
+  hi:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: echo "hello"
+  bye:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: echo "bye"
 workflows:
-  merge:
+  build_hi_bye:
     jobs:
-      - merge
+      - build
+      - bye
